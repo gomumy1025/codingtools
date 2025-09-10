@@ -141,7 +141,7 @@ void push_mid(list* l, node* tg, int dt) {
 	return;
 }
 
-void pop_mid(list* l, node* tg) {
+node* pop_mid(list* l, node* tg) {
 	if (l->size == 0 || !find(l, tg)) {
 		return;
 	}
