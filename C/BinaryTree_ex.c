@@ -98,6 +98,13 @@ int Tree_Height(BT* node) {
     return 1 + max(Tree_Height(node->left), Tree_Height(node->right));
 }
 
+void Tree_Free(BT *root) {
+    if (root == NULL) return;
+    Tree_Free(root->left);
+    Tree_Free(root->right);
+    free(root);
+}
+
 int main() {
     int n, m;
     printf("Enter number of nodes: ");
@@ -146,6 +153,8 @@ int main() {
 
     printf("%d개\n", Tree_Node_Count(root));
     printf("height=%d\n", Tree_Height(root));
+
+    Tree_Free(root);
 
     return 0;
 }
